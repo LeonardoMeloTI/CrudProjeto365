@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CrudProjeto365</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+
+    <nav class="navbar-expand-md navbar-light bg-light fixed-top py-3 box-shadow">
+        <a asp-action="index" class="navbar-brand">
+            <img src="~/fotos/Logo.png" class="logo" alt="365">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <nav class="menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="promocoes">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Destino">Destino</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="Contato">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-dark text-white mt-2">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <h4 class="h6">PÁGINAS</h4>
+                    <ul class="list-unstyled">
+                        <li><a asp-action="index">Home</a></li>
+                        <li><a asp-action="promoções">Promoções</a></li>
+                        <li><a asp-action="destino">Destino</a></li>
+                        <li><a asp-action="contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h4 class="h6">LOCAIS</h4>
+                    <ul class="list-unstyled">
+                        <li><a asp-action="promoções">México</a></li>
+                        <li><a asp-action="promoções">França</a></li>
+                        <li><a asp-action="promoções">Itália</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="h6">DADOS DE CONTATO</h4>
+                    <ul class="list-unstyled text-secondary">
+                        <li>365@gmail.com.br</li>
+                        <li>21 99999-9999</li>
+                        <li>De Seg. à Sex. das 8h às 18h</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="h6">REDES SOCIAIS</h4>
+                    <ul class="list-unstyled">
+                        <li><a class="btn btn-outline-secondary btn-sm btn-block mb-2 icone" asp-action="#" style="max-width: 140px">Facebook</a></li>
+                        <li><a class="btn btn-outline-secondary btn-sm btn-block mb-2 icone" asp-action="#" style="max-width: 140px">Twitter</a></li>
+                        <li><a class="btn btn-outline-secondary btn-sm btn-block mb-2 icone" asp-action="#" style="max-width: 140px">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bg-primary text-center py-3">
+            <p class="mb-0">Direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

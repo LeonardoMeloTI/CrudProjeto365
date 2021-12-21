@@ -1,0 +1,167 @@
+body {
+  padding-top: 75px;
+}
+
+.box-shadow {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
+              0 4px 8px 0 rgba(0,0,0,.05);
+}
+
+#home-index {
+  background: url("~/fotos/Viagem.jpg");
+  background-size: cover;
+}
+
+#home-promo {
+    background: url("~/fotos/lugares.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+
+@media (max-width: 767px) {
+  #home-index, .display-4{
+    font-size: 2.5rem;
+  }
+  body {
+    padding-top: 0px;
+  }
+  .fixed-top {
+    position: relative;
+  }
+}
+
+.lista-plano li + li {
+  border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.lista-plano li {
+  padding: 1rem;
+}
+
+img{
+  height:60px;
+}
+.logo{
+  height:60px;
+  padding-left:5px;
+}
+.badge-success {
+  color: #fff;
+  background-color: #28a745;
+}
+
+a {
+  color: #0000ff;
+}
+
+.carousel img {
+  height: 40rem;
+}
+
+#comentario{
+  height:30vh;
+  margin-left:130px;
+  padding:25px;
+  margin-bottom: 100px;
+  
+}
+
+.divContato{
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu{
+  display: inline-flex;
+  margin-left:1180px;
+  font-size:17px;
+}
+
+.input-group-btn{
+  padding-top: 1px;
+  
+}
+
+.formulario{
+position:relative;
+top: 50%;
+margin-left:40px;
+margin-bottom:100px;
+}
+.box{
+  box-shadow: 2px 2px 2px 2px rgb(202, 197, 197) ;
+  padding: 40px;
+
+}
+
+.box-home{
+  box-shadow: 2px 2px 2px 2px rgb(202, 197, 197) ;
+  text-align: center;
+}
+
+.pacote{
+  position:absolute;
+  left:600px;
+  bottom:38px;
+}
+
+#formaPagamento{
+  width:310px;
+}
+
+#caixa{
+  width:330px;
+  margin-left:40px;
+  margin-bottom:40px;
+}
+
+#item{
+  margin-left:40px;
+}
+
+#button{
+  margin-left:40px;
+}
+
+#enviar{
+  margin-top: 20px;
+}
+
+#comentar{
+  padding-top:20px;
+}
+
+.icone{
+  width:100px;
+}
+
+.card{
+  margin:25px;
+  box-shadow: 2px 2px 2px 2px rgb(202, 197, 197) ;
+  padding-bottom:30px;
+}
+
+.card-img-top{
+  height:100%;
+  width:100%;
+  margin-top:10px;
+}
+
+.card{
+  margin-bottom: 50px;
+  text-align:center;
+}
+
+.card-button{
+  position:relative;
+  top:10px;
+}
+
+.display-flex{
+  display: flex;
+}
+
