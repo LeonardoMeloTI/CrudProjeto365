@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Promocao.cs" />
     <Compile Remove="Views\Home\Index1.cshtml.cs" />
     <Compile Remove="Views\Home\Teste.cshtml.cs" />
   </ItemGroup>

@@ -21,7 +21,7 @@ namespace CrudProjeto365.Models
 
         [ForeignKey("Cliente")]
         public int Cliente_id { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        public virtual Contato Cliente { get; set; }
 
 
 

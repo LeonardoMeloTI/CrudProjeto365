@@ -21,7 +21,7 @@ namespace CrudProjeto365.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.cliente.ToListAsync());
+            return View(await _context.Cliente.ToListAsync());
         }
 
         // GET: Clientes/Details/5
@@ -32,8 +32,8 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.cliente
-                .FirstOrDefaultAsync(m => m.Cliente_id == id);
+            var cliente = await _context.Cliente
+                .FirstOrDefaultAsync(m => m.Pessoa_id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -53,14 +53,15 @@ namespace CrudProjeto365.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Cliente_id,nome,CPF,Email,Endereco,Cep,Bairro,Cidade,Estado,Sexo,Telefone,Nascimento")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Pessoa_id,Email,Mensagem")] Cliente cliente)
         {
-           
+            if (ModelState.IsValid)
+            {
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            
-            
+            }
+            return View(cliente);
         }
 
         // GET: Clientes/Edit/5
@@ -71,7 +72,7 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.cliente.FindAsync(id);
+            var cliente = await _context.Cliente.FindAsync(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -84,9 +85,9 @@ namespace CrudProjeto365.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Cliente_id,nome,CPF,Email,Endereco,Cep,Bairro,Cidade,Estado,Sexo,Telefone,Nascimento")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Pessoa_id,Email,Mensagem")] Cliente cliente)
         {
-            if (id != cliente.Cliente_id)
+            if (id != cliente.Pessoa_id)
             {
                 return NotFound();
             }
@@ -100,7 +101,7 @@ namespace CrudProjeto365.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.Cliente_id))
+                    if (!ClienteExists(cliente.Pessoa_id))
                     {
                         return NotFound();
                     }
@@ -122,8 +123,8 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.cliente
-                .FirstOrDefaultAsync(m => m.Cliente_id == id);
+            var cliente = await _context.Cliente
+                .FirstOrDefaultAsync(m => m.Pessoa_id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -137,15 +138,15 @@ namespace CrudProjeto365.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cliente = await _context.cliente.FindAsync(id);
-            _context.cliente.Remove(cliente);
+            var cliente = await _context.Cliente.FindAsync(id);
+            _context.Cliente.Remove(cliente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClienteExists(int id)
         {
-            return _context.cliente.Any(e => e.Cliente_id == id);
+            return _context.Cliente.Any(e => e.Pessoa_id == id);
         }
     }
 }

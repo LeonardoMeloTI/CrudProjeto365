@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CrudProjeto365.Models.Promocao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="mt-5 pt-5">Seja Bem-Vindo</h1>
+
+<p>
+    <a asp-action="Create" class="mt-2">Cadastrar</a>
+</p>
+<table class="table mt-5">
+    <thead class="mb-5">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Passageiro_id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Passageiro_id">Visualizar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Passageiro_id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -9,22 +9,22 @@ using CrudProjeto365.Models;
 
 namespace CrudProjeto365.Controllers
 {
-    public class ContatoController : Controller
+    public class PromocaosController : Controller
     {
         private readonly Context _context;
 
-        public ContatoController(Context context)
+        public PromocaosController(Context context)
         {
             _context = context;
         }
 
-        // GET: Contato
+        // GET: Promocaos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contato.ToListAsync());
+            return View(await _context.Promocao.ToListAsync());
         }
 
-        // GET: Contato/Details/5
+        // GET: Promocaos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,37 +32,39 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var contato = await _context.Contato
-                .FirstOrDefaultAsync(m => m.Contato_id == id);
-            if (contato == null)
+            var promocao = await _context.Promocao
+                .FirstOrDefaultAsync(m => m.Passageiro_id == id);
+            if (promocao == null)
             {
                 return NotFound();
             }
 
-            return View(contato);
+            return View(promocao);
         }
 
-        // GET: Contato/Create
+        // GET: Promocaos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Contato/Create
+        // POST: Promocaos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Contato_id,Email,Mensagem")] Contato contato)
+        public async Task<IActionResult> Create([Bind("Passageiro_id,Destino,Dias,Preco,Data")] Promocao promocao)
         {
-            
-                _context.Add(contato);
+            if (ModelState.IsValid)
+            {
+                _context.Add(promocao);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            
+            }
+            return View(promocao);
         }
 
-        // GET: Contato/Edit/5
+        // GET: Promocaos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -70,22 +72,22 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var contato = await _context.Contato.FindAsync(id);
-            if (contato == null)
+            var promocao = await _context.Promocao.FindAsync(id);
+            if (promocao == null)
             {
                 return NotFound();
             }
-            return View(contato);
+            return View(promocao);
         }
 
-        // POST: Contato/Edit/5
+        // POST: Promocaos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Contato_id,Email,Mensagem")] Contato contato)
+        public async Task<IActionResult> Edit(int id, [Bind("Passageiro_id,Destino,Dias,Preco,Data")] Promocao promocao)
         {
-            if (id != contato.Contato_id)
+            if (id != promocao.Passageiro_id)
             {
                 return NotFound();
             }
@@ -94,12 +96,12 @@ namespace CrudProjeto365.Controllers
             {
                 try
                 {
-                    _context.Update(contato);
+                    _context.Update(promocao);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContatoExists(contato.Contato_id))
+                    if (!PromocaoExists(promocao.Passageiro_id))
                     {
                         return NotFound();
                     }
@@ -110,10 +112,10 @@ namespace CrudProjeto365.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(contato);
+            return View(promocao);
         }
 
-        // GET: Contato/Delete/5
+        // GET: Promocaos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -121,30 +123,30 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var contato = await _context.Contato
-                .FirstOrDefaultAsync(m => m.Contato_id == id);
-            if (contato == null)
+            var promocao = await _context.Promocao
+                .FirstOrDefaultAsync(m => m.Passageiro_id == id);
+            if (promocao == null)
             {
                 return NotFound();
             }
 
-            return View(contato);
+            return View(promocao);
         }
 
-        // POST: Contato/Delete/5
+        // POST: Promocaos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var contato = await _context.Contato.FindAsync(id);
-            _context.Contato.Remove(contato);
+            var promocao = await _context.Promocao.FindAsync(id);
+            _context.Promocao.Remove(promocao);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ContatoExists(int id)
+        private bool PromocaoExists(int id)
         {
-            return _context.Contato.Any(e => e.Contato_id == id);
+            return _context.Promocao.Any(e => e.Passageiro_id == id);
         }
     }
 }

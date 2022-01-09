@@ -1,143 +1,141 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Home Page";
 }
-    <section class="container-fluid">
-        <div class="row bg-dark text-white">
-            <div class="col-lg-7 p-0">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="~/fotos/franca.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="~/fotos/grecia.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="~/fotos/portugal.jpg" class="d-block w-100" alt="...">
-                        </div>
+<section class="container-fluid">
+    <div class="row bg-dark text-white">
+        <div class="col-lg-7 p-0">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/fotos/franca.jpg" class="d-block w-100" alt="...">
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Próximo</span>
-                    </button>
+                    <div class="carousel-item">
+                        <img src="~/fotos/grecia.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/fotos/portugal.jpg" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-5 p-4 align-self-center">
-                <h1 class="display-4">Realize a viagem do seu sonho</h1>
-                <p class="lead">O melhor local para viajar é com a 365, com milhares de excursões concluídas.</p>
-                <form action="">
-                    <div class="input-group input-group-lg">
-                        <span class="input-group-btn">
-                            <a class="btn btn-primary" asp-action="Index" asp-controller="Clientes"> 
-                               Inscreva-se
-                            </a>
-                        </span>
-                    </div>
-                </form>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
             </div>
         </div>
-    </section>
-
-    <section class="py-5 bg-light text-center">
-        <div class="container">
-            <div class="my-5">
-                <span class="h6 d-block">TUDO DE MELHOR PARA VOCÊ</span>
-                <h2 class="display-4 text-primary">Aproveite as Vantagens</h2>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-6">
-                    <div style="height: 100px;" class="d-flex justify-content-center">
-                        <img src="fotos/Documentos.png" alt="documentos">
-                    </div>
-                    <h3>Documentos</h3>
-                    <p>Toda questão burocrática de documentos já ficam salvos no sistema e agilizando o processo de checagem das informações.</p>
+        <div class="col-lg-5 p-4 align-self-center">
+            <h1 class="display-4">Realize a viagem do seu sonho</h1>
+            <p class="lead">O melhor local para viajar é com a 365, com milhares de excursões concluídas.</p>
+            <form action="">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-btn">
+                        <a class="btn btn-primary" asp-controller="Promocaos">
+                            Viagens em Promoção
+                        </a>
+                    </span>
                 </div>
+            </form>
+        </div>
+    </div>
+</section>
 
-                <div class="col-xl-4 col-md-6">
-                    <div style="height: 100px;" class="d-flex justify-content-center">
-                        <img src="fotos/Bilhete.png" alt="Passagens">
-                    </div>
-                    <h3>Passagens</h3>
-                    <p>O acessso as datas e o destino podem ser acessados de qualquer lugar do brasil com a maior praticidade e descomplicação comparado as outras empresas.</p>
+<section class="py-5 bg-light text-center">
+    <div class="container">
+        <div class="my-5">
+            <span class="h6 d-block">TUDO DE MELHOR PARA VOCÊ</span>
+            <h2 class="display-4 text-primary">Aproveite as Vantagens</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-md-6">
+                <div style="height: 100px;" class="d-flex justify-content-center">
+                    <img src="fotos/Documentos.png" alt="documentos">
                 </div>
-
-                <div class="col-xl-4 col-md-6">
-                    <div style="height: 100px;" class="d-flex justify-content-center">
-                        <img src="fotos/transferencia.png" alt="Translado">
-                    </div>
-                    <h3>Translado</h3>
-                    <p>Sem preocupação no seu deslocamento independente do lugar que esteja.A condução a empresa fica responsável conforme a contratação do pacote de viagem.</p>
-                </div>
-
-                <div class="col-xl-4 col-md-6">
-                    <div style="height: 100px;" class="d-flex justify-content-center">
-                        <img src="fotos/Praia.png" class="icones" alt="Praias">
-                    </div>
-                    <h3>Praias</h3>
-                    <p>Temos guias treinados e com a melhor orientação para aproveitar a beleza local visitada.</p>
-                </div>
-
-                <div class="col-xl-4 col-md-6">
-                    <div style="height: 100px;" class="d-flex justify-content-center">
-                        <img src="fotos/Bagagem.png" alt="Bagagens">
-                    </div>
-                    <h3>Bagagens</h3>
-                    <p>Despreocupação com malas e seus itens contidos nela.Qualuer dano causado a empresa irá arcar com os custos.</p>
-                </div>
-
-                <div class="col-xl-4 col-md-6">
-                    <div style="height: 100px;" class="d-flex justify-content-center">
-                        <img src="fotos/Turismo.png" alt="Turismo">
-                    </div>
-                    <h3>Turismo</h3>
-                    <p>Pacote completo de viagem com o melhor preço de mercado.</p>
-                </div>
-
+                <h3>Documentos</h3>
+                <p>Toda questão burocrática de documentos já ficam salvos no sistema e agilizando o processo de checagem das informações.</p>
             </div>
 
-            <a asp-action="Index" asp-controller="Passagems" class="btn btn-primary btn-lg mt-4">Escolher destino</a>
+            <div class="col-xl-4 col-md-6">
+                <div style="height: 100px;" class="d-flex justify-content-center">
+                    <img src="fotos/Bilhete.png" alt="Passagens">
+                </div>
+                <h3>Passagens</h3>
+                <p>O acessso as datas e o destino podem ser acessados de qualquer lugar do brasil com a maior praticidade e descomplicação comparado as outras empresas.</p>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div style="height: 100px;" class="d-flex justify-content-center">
+                    <img src="fotos/transferencia.png" alt="Translado">
+                </div>
+                <h3>Translado</h3>
+                <p>Sem preocupação no seu deslocamento independente do lugar que esteja.A condução a empresa fica responsável conforme a contratação do pacote de viagem.</p>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div style="height: 100px;" class="d-flex justify-content-center">
+                    <img src="fotos/Praia.png" class="icones" alt="Praias">
+                </div>
+                <h3>Praias</h3>
+                <p>Temos guias treinados e com a melhor orientação para aproveitar a beleza local visitada.</p>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div style="height: 100px;" class="d-flex justify-content-center">
+                    <img src="fotos/Bagagem.png" alt="Bagagens">
+                </div>
+                <h3>Bagagens</h3>
+                <p>Despreocupação com malas e seus itens contidos nela.Qualuer dano causado a empresa irá arcar com os custos.</p>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div style="height: 100px;" class="d-flex justify-content-center">
+                    <img src="fotos/Turismo.png" alt="Turismo">
+                </div>
+                <h3>Turismo</h3>
+                <p>Pacote completo de viagem com o melhor preço de mercado.</p>
+            </div>
+
         </div>
-    </section>
 
-    <section id="home-index" class="p-md-5">
-        <blockquote class="blockquote text-center text-white p-md-5 p-3">
-            <img src="~/fotos/Viagem.jpg" class="viagem"/>
-            <p class="display-4"><em>"A felicidade não está na estrada que leva a algum lugar. A felicidade é a própria estrada."</em></p>
-            <footer class="blockquote-footer text-white">Bob Dylan</footer>
-        </blockquote>
-    </section>
+        <a class="btn btn-primary btn-lg mt-4" asp-controller="Passagems">Escolher destino</a>
+    </div>
+</section>
 
-    <section class="container">
-        <h2 class="text-center my-5">Sobre Nós</h2>
-        <div class="divContato">
-            <p>A Empresa foi criada com o próposito de facilitar a vida das pessoas nas suas viagens nacionais e internacionais com pacotes que cabem no bolso e aproveitando o melhor da vida que é conhecer novos lugares, eu Leonardo Silva de Melo o criador do site, com todo conteúdo passado pelo programa do curso o qual pude colocar em prática todo conhecimento acadêmico e com ajuda dos monitores que desde do começo agregaram em muito e além dos professores com matéria de solfskills e a matéria de hardskills de programação.</p>
-        </div>
-        <main class="container box-home">
-            <h2 class="text-center my-5" id="comentar">Comentários Clientes</h2>
-            <div class="divAutores">
-                <div class="sobreAutores">
-                    <div class="row">
-                        <div class="col-12 col-lg-4">
-                            <img id="comentario" src="fotos/usuario.png" alt="mexico">
-                        </div>
-                        <div class="col-12 col-lg-8 textoSobre">
+<section class="p-md-5 home-index">
+    <blockquote class="blockquote text-center text-white p-md-5 p-3">
+        <p class="display-4 palavra"><em>"A felicidade não está na estrada que leva a algum lugar. A felicidade é a própria estrada."</em></p>
+        <footer class="blockquote-footer text-white palavra">Bob Dylan</footer>
+    </blockquote>
+</section>
 
-                            <h2>André Felipe Melo</h2>
-                            <p>A viagem mais inusitada que eu fiz foi para fora do país no México no caso, utilizando a plataforma que teve um ótimo desconto para os clientes novos, além da usabilidade do site e simplicidade, muitas pessoas tem aproveitado suas viagens.Só tenho agradecer pelo atendimento e pelo desconto na minha viagem internacional a primeira de muitas.Obrigado 365.</p>
-                        </div>
+<section class="container">
+    <h2 class="text-center my-5">Sobre Nós</h2>
+    <div class="divContato">
+        <p>A Empresa foi criada com o próposito de facilitar a vida das pessoas nas suas viagens nacionais e internacionais com pacotes que cabem no bolso e aproveitando o melhor da vida que é conhecer novos lugares, eu Leonardo Silva de Melo o criador do site, com todo conteúdo passado pelo programa do curso o qual pude colocar em prática todo conhecimento acadêmico e com ajuda dos monitores que desde do começo agregaram em muito e além dos professores com matéria de solfskills e a matéria de hardskills de programação.</p>
+    </div>
+    <main class="container box-home">
+        <h2 class="text-center my-5" id="comentar">Comentários Clientes</h2>
+        <div class="divAutores">
+            <div class="sobreAutores">
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <img id="comentario" src="fotos/usuario.png" alt="mexico">
+                    </div>
+                    <div class="col-12 col-lg-8 textoSobre">
+
+                        <h2>André Felipe Melo</h2>
+                        <p>A viagem mais inusitada que eu fiz foi para fora do país no México no caso, utilizando a plataforma que teve um ótimo desconto para os clientes novos, além da usabilidade do site e simplicidade, muitas pessoas tem aproveitado suas viagens.Só tenho agradecer pelo atendimento e pelo desconto na minha viagem internacional a primeira de muitas.Obrigado 365.</p>
                     </div>
                 </div>
             </div>
-        </main>
-
-        <div class="text-center my-4">
-            <p class="small m-1">FALE CONOSCO PARA MAIS DÚVIDAS</p>
-            <a class="btn btn-primary btn-lg" asp-action="Promocoes">Realize seu sonho</a>
         </div>
-    </section>
+    </main>
 
-    
+    <div class="text-center my-4">
+        <p class="small m-1">FALE CONOSCO PARA MAIS DÚVIDAS</p>
+        <a class="btn btn-primary btn-lg" asp-controller="Clientes">Deixe sua mensagem </a>
+    </div>
+</section>
+

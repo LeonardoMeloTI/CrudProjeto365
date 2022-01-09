@@ -21,7 +21,7 @@ namespace CrudProjeto365.Controllers
         // GET: Passagems
         public async Task<IActionResult> Index()
         {
-            var context = _context.passagem.Include(p => p.Cliente);
+            var context = _context.Passagem.Include(p => p.Cliente);
             return View(await context.ToListAsync());
         }
 
@@ -33,7 +33,7 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var passagem = await _context.passagem
+            var passagem = await _context.Passagem
                 .Include(p => p.Cliente)
                 .FirstOrDefaultAsync(m => m.Passagem_id == id);
             if (passagem == null)
@@ -47,7 +47,7 @@ namespace CrudProjeto365.Controllers
         // GET: Passagems/Create
         public IActionResult Create()
         {
-            ViewData["Cliente_id"] = new SelectList(_context.cliente, "Cliente_id", "Cliente_id");
+            ViewData["Cliente_id"] = new SelectList(_context.Contato, "Cliente_id", "Cliente_id");
             return View();
         }
 
@@ -58,13 +58,14 @@ namespace CrudProjeto365.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Passagem_id,Destino,Data,Horario,Poltrona,Classe,Preço,Cliente_id")] Passagem passagem)
         {
-           
+            if (ModelState.IsValid)
+            {
                 _context.Add(passagem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            
-            ViewData["Cliente_id"] = new SelectList(_context.cliente, "Cliente_id", "Cliente_id", passagem.Cliente_id);
-            
+            }
+            ViewData["Cliente_id"] = new SelectList(_context.Contato, "Cliente_id", "Cliente_id", passagem.Cliente_id);
+            return View(passagem);
         }
 
         // GET: Passagems/Edit/5
@@ -75,12 +76,12 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var passagem = await _context.passagem.FindAsync(id);
+            var passagem = await _context.Passagem.FindAsync(id);
             if (passagem == null)
             {
                 return NotFound();
             }
-            ViewData["Cliente_id"] = new SelectList(_context.cliente, "Cliente_id", "Cliente_id", passagem.Cliente_id);
+            ViewData["Cliente_id"] = new SelectList(_context.Contato, "Cliente_id", "Cliente_id", passagem.Cliente_id);
             return View(passagem);
         }
 
@@ -116,7 +117,7 @@ namespace CrudProjeto365.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Cliente_id"] = new SelectList(_context.cliente, "Cliente_id", "Cliente_id", passagem.Cliente_id);
+            ViewData["Cliente_id"] = new SelectList(_context.Contato, "Cliente_id", "Cliente_id", passagem.Cliente_id);
             return View(passagem);
         }
 
@@ -128,7 +129,7 @@ namespace CrudProjeto365.Controllers
                 return NotFound();
             }
 
-            var passagem = await _context.passagem
+            var passagem = await _context.Passagem
                 .Include(p => p.Cliente)
                 .FirstOrDefaultAsync(m => m.Passagem_id == id);
             if (passagem == null)
@@ -144,15 +145,15 @@ namespace CrudProjeto365.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var passagem = await _context.passagem.FindAsync(id);
-            _context.passagem.Remove(passagem);
+            var passagem = await _context.Passagem.FindAsync(id);
+            _context.Passagem.Remove(passagem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PassagemExists(int id)
         {
-            return _context.passagem.Any(e => e.Passagem_id == id);
+            return _context.Passagem.Any(e => e.Passagem_id == id);
         }
     }
 }

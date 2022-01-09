@@ -21,6 +21,24 @@ namespace CrudProjeto365.Migrations
 
             modelBuilder.Entity("CrudProjeto365.Models.Cliente", b =>
                 {
+                    b.Property<int>("Pessoa_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mensagem")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Pessoa_id");
+
+                    b.ToTable("Cliente");
+                });
+
+            modelBuilder.Entity("CrudProjeto365.Models.Contato", b =>
+                {
                     b.Property<int>("Cliente_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
@@ -50,34 +68,16 @@ namespace CrudProjeto365.Migrations
                     b.Property<DateTime>("Nascimento")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Sexo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nome")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Cliente_id");
-
-                    b.ToTable("cliente");
-                });
-
-            modelBuilder.Entity("CrudProjeto365.Models.Contato", b =>
-                {
-                    b.Property<int>("Contato_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mensagem")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Contato_id");
 
                     b.ToTable("Contato");
                 });
@@ -114,12 +114,12 @@ namespace CrudProjeto365.Migrations
 
                     b.HasIndex("Cliente_id");
 
-                    b.ToTable("passagem");
+                    b.ToTable("Passagem");
                 });
 
             modelBuilder.Entity("CrudProjeto365.Models.Promocao", b =>
                 {
-                    b.Property<int>("Promocao_id")
+                    b.Property<int>("Passageiro_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -127,29 +127,23 @@ namespace CrudProjeto365.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Desembarque")
-                        .HasColumnType("int");
-
                     b.Property<string>("Destino")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Embarque")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Origem")
+                    b.Property<string>("Dias")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Valor")
-                        .HasColumnType("float");
+                    b.Property<string>("Preco")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Promocao_id");
+                    b.HasKey("Passageiro_id");
 
                     b.ToTable("Promocao");
                 });
 
             modelBuilder.Entity("CrudProjeto365.Models.Passagem", b =>
                 {
-                    b.HasOne("CrudProjeto365.Models.Cliente", "Cliente")
+                    b.HasOne("CrudProjeto365.Models.Contato", "Cliente")
                         .WithMany("Id_passagem")
                         .HasForeignKey("Cliente_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -158,7 +152,7 @@ namespace CrudProjeto365.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("CrudProjeto365.Models.Cliente", b =>
+            modelBuilder.Entity("CrudProjeto365.Models.Contato", b =>
                 {
                     b.Navigation("Id_passagem");
                 });

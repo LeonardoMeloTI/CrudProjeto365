@@ -14,9 +14,9 @@ namespace CrudProjeto365.Models
 
         }
 
-        public DbSet<Cliente> cliente { get; set; }
-        public DbSet<Passagem> passagem { get; set; }
-        public DbSet<CrudProjeto365.Models.Contato> Contato { get; set; }
-        public DbSet<CrudProjeto365.Models.Promocao> Promocao { get; set; }
+        public DbSet<Contato> Contato { get; set; }
+        public DbSet<Passagem> Passagem { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Promocao> Promocao { get; set; }
     }
 }
