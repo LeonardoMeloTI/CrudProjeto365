@@ -11,11 +11,12 @@ namespace CrudProjeto365.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly Context _context;
+
+        public HomeController(Context context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -37,6 +38,15 @@ namespace CrudProjeto365.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Contato(Contato contato)
+        {
+            _context.Contato.Add(contato);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

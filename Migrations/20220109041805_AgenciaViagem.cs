@@ -3,17 +3,31 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CrudProjeto365.Migrations
 {
-    public partial class Banco : Migration
+    public partial class AgenciaViagem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "cliente",
+                name: "Cliente",
+                columns: table => new
+                {
+                    Pessoa_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mensagem = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cliente", x => x.Pessoa_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Contato",
                 columns: table => new
                 {
                     Cliente_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CPF = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -27,11 +41,27 @@ namespace CrudProjeto365.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_cliente", x => x.Cliente_id);
+                    table.PrimaryKey("PK_Contato", x => x.Cliente_id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "passagem",
+                name: "Promocao",
+                columns: table => new
+                {
+                    Passageiro_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Destino = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Dias = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Preco = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Data = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Promocao", x => x.Passageiro_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Passagem",
                 columns: table => new
                 {
                     Passagem_id = table.Column<int>(type: "int", nullable: false)
@@ -46,28 +76,34 @@ namespace CrudProjeto365.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_passagem", x => x.Passagem_id);
+                    table.PrimaryKey("PK_Passagem", x => x.Passagem_id);
                     table.ForeignKey(
-                        name: "FK_passagem_cliente_Cliente_id",
+                        name: "FK_Passagem_Contato_Cliente_id",
                         column: x => x.Cliente_id,
-                        principalTable: "cliente",
+                        principalTable: "Contato",
                         principalColumn: "Cliente_id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_passagem_Cliente_id",
-                table: "passagem",
+                name: "IX_Passagem_Cliente_id",
+                table: "Passagem",
                 column: "Cliente_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "passagem");
+                name: "Cliente");
 
             migrationBuilder.DropTable(
-                name: "cliente");
+                name: "Passagem");
+
+            migrationBuilder.DropTable(
+                name: "Promocao");
+
+            migrationBuilder.DropTable(
+                name: "Contato");
         }
     }
 }
