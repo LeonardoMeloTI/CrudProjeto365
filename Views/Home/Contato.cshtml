@@ -1,7 +1,6 @@
-﻿@page
-@model CrudProjeto365.Views.Home.ContatoModel
-@{
-}
+﻿
+@model CrudProjeto365.Models.Contato
+
 
 <section class="container">
     <div class="my-5 text-center">
@@ -9,52 +8,52 @@
         <h1 class="display-4 text-primary">Fale Conosco</h1>
     </div>
     <div class="row">
-        <form asp-action="Contato" method="post">
+        <form method="post">
 
             <div class="form-group">
                 <label>Nome</label>
-                <input  type="text" class="form-control" id="clienteNome" required>
+                <input asp-for="Nome" type="text" class="form-control" id="clienteNome">
             </div>
             <div class="form-group">
                 <label>Cpf</label>
-                <input  type="text" class="form-control" id="clienteCpf" required>
+                <input asp-for="CPF"  type="text" class="form-control" id="clienteCpf" required>
             </div>
             <div class="form-group">
                 <label>Nascimento</label>
-                <input  type="text" class="form-control" id="clienteNascimento" required>
+                <input asp-for="Nascimento" type="text" class="form-control" id="clienteNascimento" required>
             </div>
             <div class="form-group">
                 <label>Sexo</label>
-                <input type="text" class="form-control" id="clienteSexo" required>
+                <input asp-for="Sexo" type="text" class="form-control" id="clienteSexo" required>
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" id="clienteEmail" required>
+                <input asp-for="Email" type="email" class="form-control" id="clienteEmail" required>
             </div>
             <div class="form-group">
                 <label>Telefone</label>
-                <input type="text" class="form-control" id="clienteTelefone" required>
+                <input asp-for="Telefone" type="text" class="form-control" id="clienteTelefone" required>
             </div>
             <div class="form-group">
                 <label>Endereço</label>
-                <input type="text" class="form-control" id="clienteEndereco" required>
+                <input asp-for="Endereco" type="text" class="form-control" id="clienteEndereco" required>
             </div>
             <div class="form-group">
                 <label>Cep</label>
-                <input type="text" class="form-control" id="clienteCep" required>
+                <input asp-for="Cep" type="text" class="form-control" id="clienteCep" required>
             </div>
             <div class="form-group">
                 <label>Bairro</label>
-                <input  type="text" class="form-control" id="clienteBairro" required>
+                <input asp-for="Bairro" type="text" class="form-control" id="clienteBairro" required>
             </div>
 
             <div class="form-group">
                 <label>Cidade</label>
-                <input  type="text" class="form-control" id="clienteCidade" required>
+                <input asp-for="Cidade"  type="text" class="form-control" id="clienteCidade" required>
             </div>
             <div class="form-group">
                 <label>Estado</label>
-                <input  type="text" class="form-control" id="clienteEstado" required>
+                <input asp-for="Estado" type="text" class="form-control" id="clienteEstado" required>
             </div>
 
             <button type="submit" class="btn btn-primary mb-3" id="enviar" >Enviar Mensagem</button>
